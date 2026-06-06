@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_custom_url" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.custom.url.prefix</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Insert the Custom URL Prefix settings block into the General Settings form -->
+            <xpath expr="//form" position="inside">
+                <app string="Custom URL Prefix" name="custom_url_prefix">
+                    <block title="Custom URL Prefix" id="custom_url_prefix_block" groups="base.group_system">
+                        <setting string="URL Prefix" help="Replace the default /odoo/ segment in all backend URLs with your own brand name. Leave blank to keep the Odoo default (/odoo/). Use only: a-z, 0-9, -. Must not be odoo, web, api or static.">
+                            <field name="url_prefix"
+                                   id="url_prefix"
+                                   placeholder="e.g. mycompany"
+                                   style="max-width: 300px;"/>
+                        </setting>
+                        <setting string="" help="📌 After saving, restart your Odoo server for the URL prefix change to take full effect on the server routing level. The JavaScript rewriter takes effect immediately in the browser without a restart.">
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

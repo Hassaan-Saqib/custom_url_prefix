@@ -1,0 +1,68 @@
+<section class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="display-4 text-primary font-weight-bold">Custom URL Prefix</h1>
+            <p class="lead text-muted">Replace the default <code>/odoo/</code> path segment in all Odoo 18 backend URLs with a custom brand prefix of your choice.</p>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h3 class="card-title text-primary"><i class="fa fa-star"></i> Features</h3>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><i class="fa fa-check text-success mr-2"></i> <strong>Simple configuration:</strong> One field in Settings → General Settings.</li>
+                        <li class="mb-2"><i class="fa fa-check text-success mr-2"></i> <strong>Immediate effect:</strong> The browser updates instantly via JS history-API.</li>
+                        <li class="mb-2"><i class="fa fa-check text-success mr-2"></i> <strong>Validation:</strong> Ensures safe routing with no reserved names.</li>
+                        <li class="mb-2"><i class="fa fa-check text-success mr-2"></i> <strong>Zero dependency:</strong> Only requires base Odoo modules.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body bg-light rounded">
+                    <h3 class="card-title text-primary"><i class="fa fa-magic"></i> Example</h3>
+                    <div class="mt-3">
+                        <p class="mb-1 text-muted"><strong>Default:</strong></p>
+                        <code class="d-block p-2 bg-white border rounded text-danger">https://erp.mycompany.com/odoo/dashboard</code>
+                        <p class="mb-1 mt-3 text-muted"><strong>With Custom URL Prefix:</strong></p>
+                        <code class="d-block p-2 bg-white border rounded text-success">https://erp.mycompany.com/mycompany/dashboard</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3 class="text-secondary border-bottom pb-2">Installation & Configuration</h3>
+            <ol class="mt-3">
+                <li class="mb-2">Install the app from the Apps menu.</li>
+                <li class="mb-2">Go to <strong>Settings → General Settings</strong>.</li>
+                <li class="mb-2">Find the <strong>Custom URL Prefix</strong> section and enter your prefix.</li>
+                <li class="mb-2">Click <strong>Save</strong> and restart your Odoo server.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="alert alert-info border-info shadow-sm">
+                <h4 class="alert-heading"><i class="fa fa-info-circle"></i> Reverse Proxy Note</h4>
+                <p>If you use <strong>nginx</strong> or another proxy, add a rewrite rule so direct link access works correctly:</p>
+                <pre class="bg-dark text-light p-3 rounded"><code>location ~ ^/mycompany/(.*)$ {
+    rewrite ^/mycompany/(.*)$ /odoo/$1 break;
+    proxy_pass http://127.0.0.1:8069;
+}</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-5 text-center">
+        <div class="col-12">
+            <p class="text-muted"><small>Released under the Odoo Proprietary License v1.0 (OPL-1).</small></p>
+        </div>
+    </div>
+</section>
