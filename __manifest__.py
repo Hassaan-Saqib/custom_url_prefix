@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Custom URL Prefix',
+    'name': 'Brand URL Prefix',
     'version': '18.0.1.0.0',
     'summary': 'Replace /odoo/ in URLs with your own custom brand prefix',
     'description': """
