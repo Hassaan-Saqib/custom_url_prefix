@@ -5,6 +5,16 @@ from odoo.http import request
 class IrHttp(models.AbstractModel):
     _inherit = 'ir.http'
 
+    def session_info(self):
+        session_info = super().session_info()
+        try:
+            ICP = self.env['ir.config_parameter'].sudo()
+            prefix = ICP.get_param('custom_url_prefix.prefix', default='').strip().lower()
+            session_info['url_prefix'] = prefix if prefix and prefix != 'odoo' else ''
+        except Exception:
+            session_info['url_prefix'] = ''
+        return session_info
+
     @classmethod
     def _match(cls, path_info):
         try:
